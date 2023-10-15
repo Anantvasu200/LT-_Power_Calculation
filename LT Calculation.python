@@ -1,0 +1,71 @@
+import decimal
+import matplotlib
+import math
+class PowerCalculation:
+    def __init__(self):
+        self.resistivity = 0
+        self.length = 0
+        self.area = 0
+        self.current = 0
+        self.resistance = 0
+        self.power_loss =0
+        self.menu()
+
+    def menu(self):
+        user_input = input("""
+Hii How can I help you ?
+1. Press 1 to Calculate Resistance of cable
+2. Press 2 to enter current value
+3. Press 3 to check Power_loss
+4. Press 4 to check Entered resistance value
+5. Press 5 to Check Power_Loss_value
+6. Anything else to exit
+""")
+        if user_input == '1':
+            self.calculate_Resistance()
+        elif user_input == '2':
+            self.enter_current_value()
+        elif user_input == '3':
+            self.calculate_power_loss()
+        elif user_input == '4':
+            self.check_Resistance_value()
+        elif user_input == '5':
+            self.check_Power_Loss_value()
+        else:
+            exit()
+
+    def calculate_Resistance(self):
+        self.resistivity = float(input("Enter your material resistivity in ohms per meter: "))
+        self.length = int(input("Enter your length in meters: "))
+        self.area = int(input("Enter your area in square meters: "))
+
+
+        self.resistance = (self.resistivity * self.length) / self.area
+        print(f"Resistance calculated: {self.resistance} ohm")
+        self.menu()
+        #COnversion
+        # scientific_notation = self.resistance
+        # resistance = "{:.2e}".format(scientific_notation)
+        # print(f"The resistance value is {self.resistance} ohms.")'''
+        
+    
+    def check_Resistance_value(self):
+        print("Your Resistance Value", self.resistance)
+        self.menu()
+
+
+    def enter_current_value(self):
+        self.current = float(input("Enter the current value in Ampere: "))
+        print("Current value entered")
+        self.menu()
+    
+    def calculate_power_loss(self):
+            self.power_loss = self.current ** 2 * self.resistance
+            print(f"Power loss calculated : {self.power_loss} in Watts")
+            self.menu()
+    
+    def check_Power_Loss_value(self):
+        print("Your Power Loss Value in Watts", self.power_loss)
+        self.menu()
+
+object1 = PowerCalculation()
